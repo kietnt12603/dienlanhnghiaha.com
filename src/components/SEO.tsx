@@ -85,30 +85,33 @@ export default function SEO({ type, data }: SEOProps) {
         '@context': 'https://schema.org',
         '@type': 'Service',
         name: data?.name,
-        description: data?.description,
+        description: data?.description?.replace(/<[^>]*>/g, '').slice(0, 160),
         provider: {
           '@type': 'LocalBusiness',
           name,
           address,
           telephone,
+          image: logo,
         },
         areaServed: [
           { '@type': 'City', name: 'Hội An' } as City,
           { '@type': 'City', name: 'Điện Bàn' } as City,
           { '@type': 'City', name: 'Đà Nẵng' } as City,
         ],
-        hasOfferCatalog: {
-          '@type': 'OfferCatalog',
-          name: 'Dịch vụ điện lạnh',
-          itemListElement: [
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: data?.name,
-              },
-            },
-          ],
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${baseUrl}/dich-vu/${data?.slug}`,
+        },
+        offers: {
+          '@type': 'Offer',
+          url: `${baseUrl}/dich-vu/${data?.slug}`,
+          priceCurrency: 'VND',
+          price: data?.price?.replace(/\D/g, '') || '0',
+          availability: 'https://schema.org/InStock',
+          seller: {
+            '@type': 'LocalBusiness',
+            name,
+          },
         },
       };
       break;
