@@ -34,7 +34,7 @@ export default async function BlogPage({
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-primary/5 dark:bg-primary/5 border-b border-primary/10 dark:border-white/5">
+      <section className="relative pt-32 pb-12 md:pt-48 md:pb-20 overflow-hidden bg-primary/5 dark:bg-primary/5 border-b border-primary/10 dark:border-white/5">
         <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-primary mb-6 uppercase leading-[1.1] drop-shadow-sm">
