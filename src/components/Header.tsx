@@ -39,7 +39,7 @@ export default function Header({ settings }: { settings?: any }) {
         }`}
     >
       <div className="container mx-auto px-4">
-        <nav className={`relative flex items-center px-4 sm:px-6 py-3 rounded-[24px] transition-all duration-500 ${isScrolled
+        <nav className={`relative flex items-center justify-between px-4 sm:px-6 py-3 rounded-[24px] transition-all duration-500 ${isScrolled
             ? 'glass-card shadow-premium'
             : 'bg-transparent'
           }`}>
