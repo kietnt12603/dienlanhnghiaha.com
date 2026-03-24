@@ -39,14 +39,14 @@ export default function Header({ settings }: { settings?: any }) {
         }`}
     >
       <div className="container mx-auto px-4">
-        <nav className={`relative flex items-center px-6 py-3 rounded-[24px] transition-all duration-500 ${isScrolled
+        <nav className={`relative flex items-center px-4 sm:px-6 py-3 rounded-[24px] transition-all duration-500 ${isScrolled
             ? 'glass-card shadow-premium'
             : 'bg-transparent'
           }`}>
           {/* Logo container - minimal space */}
           <div className="flex-none">
-            <Link href="/" className="flex items-center gap-3 group relative z-[110]">
-              <div className="relative w-12 h-12 transition-transform duration-500 group-hover:scale-110 flex-none">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 group relative z-[110]">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 transition-transform duration-500 group-hover:scale-110 flex-none">
                 <img
                   src="/logo.png"
                   alt="Logo Điện Lạnh Nghĩa Hà"
@@ -54,11 +54,11 @@ export default function Header({ settings }: { settings?: any }) {
                 />
               </div>
               <div className="flex flex-col justify-center">
-                <span className={`text-2xl font-black leading-[0.9] transition-colors duration-300 ${showDarkHeader ? 'text-primary dark:text-primary' : 'text-primary'
+                <span className={`text-lg sm:text-2xl font-black leading-[0.9] transition-colors duration-300 ${showDarkHeader ? 'text-primary dark:text-primary' : 'text-primary'
                   }`}>
                   NGHĨA <span className="text-primary">HÀ</span>
                 </span>
-                <span className={`text-[10px] font-extrabold transition-colors duration-300 ${showDarkHeader ? 'text-gray-500 dark:text-gray-400' : 'text-gray-500'
+                <span className={`hidden sm:flex text-[10px] font-extrabold transition-colors duration-300 ${showDarkHeader ? 'text-gray-500 dark:text-gray-400' : 'text-gray-500'
                   } tracking-[0.12em] uppercase mt-1 leading-none`}>
                   {settings?.phone || "0905.436.359"}
                 </span>
@@ -144,7 +144,7 @@ export default function Header({ settings }: { settings?: any }) {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: '100%', opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-4 right-4 bottom-4 w-[85%] max-w-sm bg-white dark:bg-slate-900 rounded-[40px] shadow-2xl z-[120] p-10 flex flex-col lg:hidden overflow-hidden"
+              className="fixed top-4 right-4 bottom-4 w-[85%] max-w-sm bg-white dark:bg-slate-900 rounded-[40px] shadow-2xl z-[120] p-6 sm:p-10 flex flex-col lg:hidden overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl" />
 
@@ -164,7 +164,7 @@ export default function Header({ settings }: { settings?: any }) {
                 </button>
               </div>
 
-              <div className="flex flex-col space-y-4 relative">
+              <div className="flex flex-col space-y-2 sm:space-y-4 relative">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.name}
@@ -175,7 +175,7 @@ export default function Header({ settings }: { settings?: any }) {
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-3xl font-black text-dark dark:text-white hover:text-primary transition-colors block py-2"
+                      className="text-2xl sm:text-3xl font-black text-dark dark:text-white hover:text-primary transition-colors block py-2"
                     >
                       {link.name}
                     </Link>
@@ -188,10 +188,10 @@ export default function Header({ settings }: { settings?: any }) {
                   transition={{ delay: 0.5 }}
                   className="pt-8"
                 >
-                  <a
-                    href={`tel:${(settings?.phone || "0905.436.359").replace(/\D/g, '')}`}
-                    className="flex flex-col items-center justify-center gap-3 bg-primary text-white py-8 rounded-[32px] font-black text-2xl shadow-2xl shadow-primary/30 hotline-pulse"
-                  >
+                    <a
+                      href={`tel:${(settings?.phone || "0905.436.359").replace(/\D/g, '')}`}
+                      className="flex flex-col items-center justify-center gap-2 sm:gap-3 bg-primary text-white py-6 sm:py-8 rounded-[32px] font-black text-xl sm:text-2xl shadow-2xl shadow-primary/30 hotline-pulse"
+                    >
                     <div className="bg-white/20 p-3 rounded-full">
                       <Phone size={32} fill="white" />
                     </div>
