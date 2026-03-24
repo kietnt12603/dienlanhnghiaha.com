@@ -86,12 +86,12 @@ export default async function BlogPage({
                       </div>
 
                       <Link href={`/blog/${post.slug}`}>
-                        <h2 className="text-xl md:text-2xl font-black text-gray-900 dark:text-white mb-4 line-clamp-2 min-h-14 group-hover:text-primary transition-colors leading-tight">
+                        <h2 className="text-xl md:text-2xl font-black text-gray-900 dark:text-white mb-4 line-clamp-3 min-h-[4.5rem] group-hover:text-primary transition-colors leading-tight">
                           {post.title}
                         </h2>
                       </Link>
                       
-                      <p className="text-gray-500 dark:text-gray-400 font-medium mb-8 line-clamp-2 italic">
+                      <p className="text-gray-500 dark:text-gray-400 font-medium mb-8 line-clamp-3 italic">
                         {post.metaDescription || "Mời bạn tham khảo bài viết chi tiết từ Điện Lạnh Nghĩa Hà..."}
                       </p>
 
