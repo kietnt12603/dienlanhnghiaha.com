@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Phone, CheckCircle, ArrowLeft, MessageCircle, Star, ShieldCheck, Clock, BadgeCheck } from "lucide-react";
 import Link from "next/link";
 import SEO from "@/components/SEO";
+import { CldImage } from "next-cloudinary";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -105,9 +106,12 @@ export default async function ServicePage({ params }: Props) {
             <div className="order-1 lg:order-2 relative group">
               <div className="absolute inset-0 bg-primary/10 rounded-[60px] translate-x-4 translate-y-4 -z-10 blur-2xl opacity-50 group-hover:opacity-100 transition-opacity" />
               <div className="relative rounded-[60px] overflow-hidden aspect-video lg:aspect-4/3 shadow-2xl border-4 border-white dark:border-white/5">
-                <img
+                <CldImage
                   src={service.image}
                   alt={service.name}
+                  width={800}
+                  height={600}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
