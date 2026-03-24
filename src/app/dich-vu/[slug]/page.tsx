@@ -220,7 +220,13 @@ export default async function ServicePage({ params }: Props) {
                     className="flex items-center gap-5 group"
                   >
                     <div className="relative w-16 h-16 rounded-2xl overflow-hidden shrink-0">
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                      <CldImage 
+                        src={item.image} 
+                        alt={item.name} 
+                        width={64}
+                        height={64}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform" 
+                      />
                     </div>
                     <div>
                       <h4 className="font-black text-gray-900 dark:text-white group-hover:text-primary transition-colors line-clamp-1">{item.name}</h4>
@@ -272,7 +278,14 @@ export default async function ServicePage({ params }: Props) {
                 className="group bg-gray-50 dark:bg-white/5 rounded-[40px] p-8 border border-gray-100 dark:border-white/5 hover:bg-white dark:hover:bg-slate-900 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
                 <div className="relative h-48 rounded-[32px] overflow-hidden mb-8">
-                  <img src={item.image} alt={item.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <CldImage 
+                    src={item.image} 
+                    alt={item.name} 
+                    width={400}
+                    height={300}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  />
                   <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
                 </div>
                 <h4 className="text-2xl font-black text-gray-900 dark:text-white mb-4 group-hover:text-primary transition-colors">{item.name}</h4>
