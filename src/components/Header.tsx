@@ -35,7 +35,7 @@ export default function Header({ settings }: { settings?: any }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'py-2' : 'py-6'
+      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 ${isScrolled ? 'py-2' : 'py-6'
         }`}
     >
       <div className="container mx-auto px-4">
@@ -45,7 +45,7 @@ export default function Header({ settings }: { settings?: any }) {
           }`}>
           {/* Logo container - minimal space */}
           <div className="flex-none">
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 group relative z-[110]">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 group relative z-110">
               <div className="relative w-10 h-10 sm:w-12 sm:h-12 transition-transform duration-500 group-hover:scale-110 flex-none">
                 <img
                   src="/logo.png"
@@ -116,7 +116,7 @@ export default function Header({ settings }: { settings?: any }) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden relative z-[120] p-2 rounded-xl transition-colors ${showDarkHeader ? 'text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-white/10' : 'text-dark hover:bg-white/10'
+              className={`lg:hidden relative z-120 p-2 rounded-xl transition-colors ${showDarkHeader ? 'text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-white/10' : 'text-dark hover:bg-white/10'
                 }`}
               aria-label={isMobileMenuOpen ? "Đóng menu" : "Mở menu"}
               aria-expanded={isMobileMenuOpen}
@@ -137,14 +137,14 @@ export default function Header({ settings }: { settings?: any }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-dark/60 backdrop-blur-md lg:hidden z-[110]"
+              className="fixed inset-0 bg-dark/60 backdrop-blur-md lg:hidden z-110"
             />
             <motion.div
               initial={{ x: '100%', opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: '100%', opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-4 right-4 bottom-4 w-[85%] max-w-sm bg-white dark:bg-slate-900 rounded-[40px] shadow-2xl z-[120] p-6 sm:p-10 flex flex-col lg:hidden overflow-hidden"
+              className="fixed top-4 right-4 bottom-4 w-[85%] max-w-sm bg-white dark:bg-slate-900 rounded-[40px] shadow-2xl z-120 p-6 sm:p-10 flex flex-col lg:hidden overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl" />
 

@@ -3,6 +3,7 @@ import { Post } from "@/models";
 import Link from "next/link";
 import { Calendar, User, ChevronRight, FileText } from "lucide-react";
 import type { Metadata } from 'next';
+import { CldImage } from "next-cloudinary";
 
 export const metadata: Metadata = {
   title: "Tin Tức & Kinh Nghiệm Điện Lạnh",
