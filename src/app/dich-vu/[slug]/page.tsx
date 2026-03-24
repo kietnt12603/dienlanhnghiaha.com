@@ -57,6 +57,7 @@ export default async function ServicePage({ params }: Props) {
     "Vệ sinh sạch sẽ sau khi sửa xong",
     "Phiếu bảo hành và hướng dẫn sử dụng"
   ];
+  const cleanedPrice = service.price?.replace(/từ/gi, '').trim() || "Liên hệ";
 
   return (
     <div className="bg-white dark:bg-dark min-h-screen pt-32 pb-20">
@@ -112,9 +113,9 @@ export default async function ServicePage({ params }: Props) {
                 <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
 
                 {/* Price Badge */}
-                <div className="absolute bottom-10 right-10 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl px-8 py-6 rounded-[32px] text-center shadow-2xl border border-white/20 scale-110">
+                <div className="absolute bottom-4 right-4 sm:bottom-10 sm:right-10 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl px-4 py-3 sm:px-8 sm:py-6 rounded-[24px] sm:rounded-[32px] text-center shadow-2xl border border-white/20 scale-100 sm:scale-110">
                   <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-1">Giá chỉ từ</p>
-                  <p className="text-2xl font-black text-primary uppercase">{service.price || "Liên hệ"}</p>
+                  <p className="text-xl sm:text-2xl font-black text-primary uppercase">{cleanedPrice}</p>
                 </div>
               </div>
             </div>
