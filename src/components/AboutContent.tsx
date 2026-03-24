@@ -4,7 +4,7 @@ import React from 'react';
 import { ShieldCheck, Zap, Heart, Award, CheckCircle2, Phone, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEO from "@/components/SEO";
-import Image from "next/image";
+import NextImage from "next/image";
 
 export default function AboutContent() {
   const coreValues = [
@@ -86,7 +86,7 @@ export default function AboutContent() {
               className="relative group lg:pr-8"
             >
               <div className="absolute -inset-4 bg-primary/20 rounded-[40px] blur-2xl group-hover:bg-primary/30 transition-colors" />
-              <Image 
+              <NextImage 
                 src="/gioi-thieu.png" 
                 alt="Đội ngũ Nghĩa Hà chuyên nghiệp" 
                 width={800}

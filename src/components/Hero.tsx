@@ -4,6 +4,7 @@ import { createBooking } from '@/actions/booking';
 import { Phone, Clock, ShieldCheck, CheckCircle2, MapPin, Zap, Star } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import NextImage from 'next/image';
 
 export default function Hero() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -80,9 +81,11 @@ export default function Hero() {
                       transition={{ delay: 0.5 + i * 0.1 }}
                       className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800 bg-gray-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden shadow-sm"
                     >
-                      <img 
+                      <NextImage 
                         src={`https://i.pravatar.cc/100?u=tech${i}`} 
                         alt={`Kỹ thuật viên điện lạnh ${i}`} 
+                        width={40}
+                        height={40}
                         className="w-full h-full object-cover"
                       />
                     </motion.div>

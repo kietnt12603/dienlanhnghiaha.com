@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Clock, Snowflake, Star } from 'lucide-react';
 import Link from 'next/link';
-import Image from "next/image";
+import NextImage from "next/image";
 
 export default function Footer({ settings }: { settings?: any }) {
   const [mounted, setMounted] = useState(false);
@@ -36,7 +36,7 @@ export default function Footer({ settings }: { settings?: any }) {
           <div className="space-y-8">
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-14 h-14">
-                <Image 
+                <NextImage 
                   src="/logo.png" 
                   alt="Logo Điện Lạnh Nghĩa Hà" 
                   width={56}
