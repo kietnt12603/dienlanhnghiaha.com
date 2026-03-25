@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Phone, Zap, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import Image from 'next/image';
 
 const steps = [
   {
@@ -66,11 +67,13 @@ export default function ProcessSection() {
               viewport={{ once: true }}
               className="relative z-10 rounded-[40px] overflow-hidden border border-white/10 shadow-2xl"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop" 
-                alt="Kỹ thuật viên đang làm việc" 
-                className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
-              />
+                <Image 
+                  src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop" 
+                  alt="Kỹ thuật viên đang làm việc" 
+                  width={800}
+                  height={600}
+                  className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+                />
               <div className="absolute inset-0 bg-linear-to-t from-dark via-transparent to-transparent opacity-60" />
               <div className="absolute bottom-8 left-8 right-8 p-6 glass-card rounded-2xl">
                 <div className="flex items-center gap-4">

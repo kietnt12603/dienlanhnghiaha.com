@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, Sun, Moon, Zap } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import NextImage from 'next/image';
 
 export default function Header({ settings }: { settings?: any }) {
   const [mounted, setMounted] = useState(false);
@@ -47,10 +48,13 @@ export default function Header({ settings }: { settings?: any }) {
           <div className="flex-none">
             <Link href="/" className="flex items-center gap-2 sm:gap-3 group relative z-110">
               <div className="relative w-10 h-10 sm:w-12 sm:h-12 transition-transform duration-500 group-hover:scale-110 flex-none">
-                <img
+                <NextImage
                   src="/logo.png"
                   alt="Logo Điện Lạnh Nghĩa Hà"
+                  width={48}
+                  height={48}
                   className="w-full h-full object-contain"
+                  priority
                 />
               </div>
               <div className="flex flex-col justify-center">

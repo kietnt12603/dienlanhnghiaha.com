@@ -2,6 +2,7 @@ import dbConnect from "@/lib/db";
 import { Service } from "@/models";
 import Link from "next/link";
 import { ChevronRight, Snowflake, Zap, Droplets } from "lucide-react";
+import Image from "next/image";
 
 export const metadata = {
   title: "Danh Sách Dịch Vụ Điện Lạnh - Sửa Chữa Chuyên Nghiệp",
@@ -48,9 +49,11 @@ export default async function ServicesPage() {
             >
               {/* Image Decor */}
               <div className="relative h-64 overflow-hidden">
-                <img 
+                <Image 
                   src={service.image || '/logo.png'} 
                   alt={service.name} 
+                  width={600}
+                  height={400}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-60" />

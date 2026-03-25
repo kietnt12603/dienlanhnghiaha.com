@@ -87,6 +87,7 @@ export default function Hero() {
                         width={40}
                         height={40}
                         className="w-full h-full object-cover"
+                        priority
                       />
                     </motion.div>
                   ))}

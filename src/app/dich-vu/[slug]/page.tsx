@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Phone, CheckCircle, ArrowLeft, MessageCircle, Star, ShieldCheck, Clock, BadgeCheck } from "lucide-react";
 import Link from "next/link";
 import SEO from "@/components/SEO";
+import Image from "next/image";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -105,13 +106,15 @@ export default async function ServicePage({ params }: Props) {
             <div className="order-1 lg:order-2 relative group">
               <div className="absolute inset-0 bg-primary/10 rounded-[60px] translate-x-4 translate-y-4 -z-10 blur-2xl opacity-50 group-hover:opacity-100 transition-opacity" />
               <div className="relative rounded-[60px] overflow-hidden aspect-video lg:aspect-4/3 shadow-2xl border-4 border-white dark:border-white/5">
-                <img
+                <Image
                   src={service.image?.includes('res.cloudinary.com') 
                     ? service.image.replace('/upload/', '/upload/f_auto,q_auto,w_800/') 
                     : service.image}
                   alt={service.name}
+                  width={800}
+                  height={600}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                  loading="lazy"
+                  priority
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
 
@@ -219,11 +222,13 @@ export default async function ServicePage({ params }: Props) {
                     className="flex items-center gap-5 group"
                   >
                     <div className="relative w-16 h-16 rounded-2xl overflow-hidden shrink-0">
-                      <img 
+                      <Image 
                         src={item.image?.includes('res.cloudinary.com') 
                           ? item.image.replace('/upload/', '/upload/f_auto,q_auto,w_100/') 
                           : item.image} 
                         alt={item.name} 
+                        width={64}
+                        height={64}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform" 
                       />
                     </div>
@@ -277,13 +282,14 @@ export default async function ServicePage({ params }: Props) {
                 className="group bg-gray-50 dark:bg-white/5 rounded-[40px] p-8 border border-gray-100 dark:border-white/5 hover:bg-white dark:hover:bg-slate-900 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
                 <div className="relative h-48 rounded-[32px] overflow-hidden mb-8">
-                  <img 
-                    src={item.image?.includes('res.cloudinary.com') 
-                      ? item.image.replace('/upload/', '/upload/f_auto,q_auto,w_400/') 
-                      : item.image} 
-                    alt={item.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                    loading="lazy"
+                  <Image
+                    src={item.image?.includes('res.cloudinary.com')
+                      ? item.image.replace('/upload/', '/upload/f_auto,q_auto,w_400/')
+                      : item.image}
+                    alt={item.name}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
                 </div>

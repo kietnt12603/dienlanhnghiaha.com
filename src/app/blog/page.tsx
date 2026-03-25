@@ -3,6 +3,7 @@ import { Post } from "@/models";
 import Link from "next/link";
 import { Calendar, User, ChevronRight, FileText } from "lucide-react";
 import type { Metadata } from 'next';
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Tin Tức & Kinh Nghiệm Điện Lạnh",
@@ -57,13 +58,14 @@ export default async function BlogPage({
                   <article key={post._id} className="group flex flex-col bg-white dark:bg-white/5 backdrop-blur-sm rounded-[40px] border border-gray-100 dark:border-white/10 shadow-premium overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20">
                     <Link href={`/blog/${post.slug}`} className="block aspect-video overflow-hidden relative">
                       {post.thumbnail ? (
-                        <img 
+                        <Image 
                           src={post.thumbnail.includes('res.cloudinary.com') 
                             ? post.thumbnail.replace('/upload/', '/upload/f_auto,q_auto,w_600/') 
                             : post.thumbnail} 
                           alt={post.title} 
+                          width={600}
+                          height={338}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                          loading="lazy"
                         />
                       ) : (
                         <div className="w-full h-full bg-gray-50 flex items-center justify-center text-gray-200">

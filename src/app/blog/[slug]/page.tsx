@@ -6,6 +6,7 @@ import Link from "next/link";
 import type { Metadata } from 'next';
 import SEO from "@/components/SEO";
 import ShareButtons from "@/components/ShareButtons";
+import Image from "next/image";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -80,12 +81,15 @@ export default async function BlogPostDetailPage({ params }: { params: Promise<{
           {/* Thumbnail */}
           {post.thumbnail && (
             <div className="rounded-[40px] overflow-hidden mb-16 shadow-premium aspect-video relative group">
-              <img 
+              <Image 
                 src={post.thumbnail?.includes('res.cloudinary.com') 
                   ? post.thumbnail.replace('/upload/', '/upload/f_auto,q_auto,w_1200/') 
                   : post.thumbnail} 
                 alt={post.title} 
+                width={1200}
+                height={675}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]"
+                priority
               />
             </div>
           )}

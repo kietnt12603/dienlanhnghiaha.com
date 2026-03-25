@@ -6,7 +6,7 @@ import ProcessSection from '@/components/ProcessSection';
 import StatsSection from '@/components/StatsSection';
 import { Zap } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Revalidate every hour
 
 async function getServices() {
   await dbConnect();
@@ -22,7 +22,7 @@ export default async function Home() {
       <Hero />
       
       {/* Services Section */}
-      <section id="services" className="py-32 relative overflow-hidden bg-[var(--section-bg)]">
+      <section id="services" className="py-32 relative overflow-hidden bg-(--section-bg)">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-black mb-6 uppercase tracking-widest">
