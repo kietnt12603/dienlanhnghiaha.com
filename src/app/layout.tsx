@@ -8,7 +8,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 
 const beVietnamPro = Be_Vietnam_Pro({ 
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "700", "900"],
   display: 'swap',
 });
 

@@ -32,20 +32,14 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Content Side */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-white/80 dark:bg-white/5 backdrop-blur-md px-4 py-2 rounded-full text-sm font-bold mb-8 shadow-sm border border-white/50 dark:border-white/10 text-primary dark:text-secondary"
-            >
+          <div className="">
+
+            <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-white/5 backdrop-blur-md px-4 py-2 rounded-full text-sm font-bold mb-8 shadow-sm border border-white/50 dark:border-white/10 text-primary dark:text-secondary">
+
               <div className="w-2 h-2 bg-primary animate-ping rounded-full" />
               Sửa chữa siêu tốc trong 30 phút
-            </motion.div>
+            </div>
+
             
             <h1 className="text-5xl md:text-8xl font-black text-slate-900 dark:text-slate-100 leading-[1.1] mb-8 tracking-tight">
               <span className="sr-only">Điện Lạnh Nghĩa Hà - Dịch vụ sửa chữa máy lạnh, tủ lạnh uy tín Quảng Nam & Đà Nẵng</span>
@@ -117,15 +111,13 @@ export default function Hero() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
+
+
 
           {/* Form Side */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
-          >
+          <div className="relative">
+
             <div className="absolute inset-0 bg-primary/10 rounded-[48px] rotate-3 scale-[1.02] blur-xl" />
             <div className="relative glass-card rounded-[40px] p-8 md:p-12 shadow-premium overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl" />
@@ -212,7 +204,8 @@ export default function Hero() {
                 </form>
               </div>
             </div>
-          </motion.div>
+          </div>
+
 
         </div>
       </div>
