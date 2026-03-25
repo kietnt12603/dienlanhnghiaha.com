@@ -55,6 +55,7 @@ const SettingsSchema = new Schema({
   facebook: { type: String },
   messenger: { type: String },
   adminPassword: { type: String }, // Optional override for ENV
+  gaId: { type: String },
 }, { timestamps: true });
 
 export const Settings = models.Settings || model('Settings', SettingsSchema);

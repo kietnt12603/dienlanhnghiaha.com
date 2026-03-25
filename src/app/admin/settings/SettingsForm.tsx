@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { updateSettings } from "@/actions/admin";
-import { Save, Phone, MapPin, Mail, MessageCircle, Lock, ShieldCheck } from "lucide-react";
+import { Save, Phone, MapPin, Mail, MessageCircle, Lock, ShieldCheck, TrendingUp } from "lucide-react";
 
 export default function SettingsForm({ initialData }: { initialData: any }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,6 +12,7 @@ export default function SettingsForm({ initialData }: { initialData: any }) {
     email: initialData?.email || "",
     facebook: initialData?.facebook || "",
     messenger: initialData?.messenger || "",
+    gaId: initialData?.gaId || "",
     adminPassword: "", // Giữ trống trừ khi muốn đổi
   });
 
@@ -134,6 +135,20 @@ export default function SettingsForm({ initialData }: { initialData: any }) {
                 className="w-full bg-white dark:bg-slate-900 border border-red-100 dark:border-red-900/30 rounded-2xl px-6 py-4 text-sm font-bold outline-none focus:border-red-500 transition-colors"
               />
               <p className="text-[10px] text-red-400 font-bold mt-2 ml-4 lowercase italic">* Cẩn thận: Đổi mật khẩu sẽ ảnh hưởng đến việc đăng nhập lần sau.</p>
+            </div>
+
+            <div className="space-y-2 p-6 bg-blue-50/50 dark:bg-blue-950/20 rounded-3xl border border-blue-100 dark:border-blue-900/30">
+              <label className="text-[10px] font-black uppercase text-blue-500 ml-4 flex items-center gap-2 mb-2">
+                <TrendingUp size={12} /> Google Analytics ID (GA4)
+              </label>
+              <input
+                name="gaId"
+                value={formData.gaId}
+                onChange={handleChange}
+                placeholder="G-XXXXXXXXXX"
+                className="w-full bg-white dark:bg-slate-900 border border-blue-100 dark:border-blue-900/30 rounded-2xl px-6 py-4 text-sm font-bold outline-none focus:border-blue-500 transition-colors"
+              />
+              <p className="text-[10px] text-blue-400 font-bold mt-2 ml-4 lowercase italic">* ID này được dùng để theo dõi hiệu suất trang web từ Google Analytics.</p>
             </div>
           </div>
         </div>

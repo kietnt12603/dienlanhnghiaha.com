@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import { getSettings } from "@/actions/admin";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const beVietnamPro = Be_Vietnam_Pro({ 
   subsets: ["latin", "vietnamese"],
@@ -91,6 +92,7 @@ export default async function RootLayout({
             {children}
           </LayoutWrapper>
         </ThemeProvider>
+        {settings.gaId && <GoogleAnalytics gaId={settings.gaId} />}
       </body>
     </html>
   );
