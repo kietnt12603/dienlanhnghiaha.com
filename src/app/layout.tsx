@@ -89,6 +89,25 @@ export default async function RootLayout({
             // Settings already handled inside SEO component defaults for Organization/LocalBusiness
           }} 
         />
+        {/* Google Analytics: Đưa vào Head để tối ưu khả năng nhận diện của Tag Assistant */}
+        {gaId && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId.trim()}`} />
+            <script
+              id="google-analytics-init"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaId.trim()}', {
+                    page_path: window.location.pathname,
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className={beVietnamPro.className} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
@@ -96,13 +115,6 @@ export default async function RootLayout({
             {children}
           </LayoutWrapper>
         </ThemeProvider>
-        {/* Verification Comment: {gaId ? `GA is active with ID: ${gaId}` : 'GA is NOT active'} */}
-        {gaId && (
-          <>
-            <GoogleAnalytics gaId={gaId} />
-            {/* <!-- GA_ID_LOADED: ${gaId} --> */}
-          </>
-        )}
       </body>
     </html>
   );
