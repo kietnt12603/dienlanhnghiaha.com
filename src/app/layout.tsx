@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import { getSettings } from "@/actions/admin";
 import { GoogleAnalytics } from '@next/third-parties/google';
+import SEO from "@/components/SEO";
 
 const beVietnamPro = Be_Vietnam_Pro({ 
   subsets: ["latin", "vietnamese"],
@@ -66,14 +67,17 @@ export const metadata: Metadata = {
   },
 };
 
-import SEO from "@/components/SEO";
-
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const settings = await getSettings();
+  const settings = await getSettings() || {};
+  const gaId = settings.gaId || process.env.NEXT_PUBLIC_GA_ID;
+
+  if (gaId) {
+    console.log(`[GA] Initializing with ID: ${gaId}`);
+  }
 
   return (
     <html lang="vi" suppressHydrationWarning>
@@ -92,7 +96,13 @@ export default async function RootLayout({
             {children}
           </LayoutWrapper>
         </ThemeProvider>
-        {settings.gaId && <GoogleAnalytics gaId={settings.gaId} />}
+        {/* Verification Comment: {gaId ? `GA is active with ID: ${gaId}` : 'GA is NOT active'} */}
+        {gaId && (
+          <>
+            <GoogleAnalytics gaId={gaId} />
+            {/* <!-- GA_ID_LOADED: ${gaId} --> */}
+          </>
+        )}
       </body>
     </html>
   );

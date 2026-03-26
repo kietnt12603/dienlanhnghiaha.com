@@ -198,7 +198,8 @@ export async function getSettings() {
     }
     return JSON.parse(JSON.stringify(settings));
   } catch (error) {
-    return null;
+    console.error('Lỗi khi lấy cài đặt:', error);
+    return {};
   }
 }
 
@@ -209,10 +210,12 @@ export async function updateSettings(data: any) {
       return { success: false, error: 'Unauthorized' };
     }
 
+    console.log('--- UPDATING SETTINGS ---');
+    console.log('Data:', JSON.stringify(data, null, 2));
+
     await dbConnect();
     const settings = await Settings.findOne();
     if (settings) {
-      // Filter out empty fields if needed, but here we just update
       await Settings.findByIdAndUpdate(settings._id, data);
     } else {
       await Settings.create(data);
@@ -222,6 +225,7 @@ export async function updateSettings(data: any) {
     revalidatePath('/', 'layout');
     return { success: true };
   } catch (error: any) {
+    console.error('Lỗi khi cập nhật cài đặt:', error);
     return { success: false, error: error.message };
   }
 }
